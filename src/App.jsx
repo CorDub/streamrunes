@@ -5,30 +5,56 @@ import RuneList from "./RuneList";
 function App() {
   const [currentRunes, setCurrentRunes] = useState([]);
   const potentialRunes = useState(["Mannaz, The Self",
-    "Gebo, A Gift",
-    "Ansuz, The Messenger",
-    "Othila, Separation",
-    "Uruz, The Wild Ox",
-    "Perth, A Secret Matter",
-    "Nauthiz, Pain",
-    "Inguz, New Beginnings",
-    "Eihwaz, Defense",
-    "Algiz, Protection",
-    "Fehu, Nourishment",
-    "Wunjo, Joy",
-    "Jera, Harvest",
-    "Kano, Fire",
-    "Teiwaz, The Warrior",
-    "Berkana, Rebirth",
-    "Ehwaz, Movement",
-    "Laguz, Water",
-    "Hagalaz, Disruption",
-    "Raido, Journey",
-    "Thurisaz, Gateway",
-    "Dagaz, Transformation",
-    "Isa, Withdrawal",
-    "Sowelu, Wholeness",
-    "Blank, The Unknowable"])
+    "Gebo",
+    "Ansuz",
+    "Othila",
+    "Uruz",
+    "Perth",
+    "Nauthiz",
+    "Inguz",
+    "Eihwaz",
+    "Algiz",
+    "Fehu",
+    "Wunjo",
+    "Jera",
+    "Kano",
+    "Teiwaz",
+    "Berkana",
+    "Ehwaz",
+    "Laguz",
+    "Hagalaz",
+    "Raido",
+    "Thurisaz",
+    "Dagaz",
+    "Isa",
+    "Sowelu",
+    "Blank"])
+  const runeSubtitle = useState(["The Self",
+    'A Gift',
+    "The Messenger",
+    "Separation",
+    "The Wild Ox",
+    "A Secret Matter",
+    "Pain",
+    "New Beginnings",
+    "Defense",
+    "Protection",
+    "Nourishment",
+    "Joy",
+    "Harvest",
+    "Fire",
+    "The Warrior",
+    "Rebirth",
+    "Movement",
+    "Water",
+    "Disruption",
+    "Journey",
+    "Gateway",
+    "Transformation",
+    "Withdrawal",
+    "Wholeness",
+    "The Unknowable"
+  ])
 
   function dropRune () {
     if (currentRunes.length >= 3) {
@@ -36,7 +62,7 @@ function App() {
     }
     console.log(currentRunes.length);
     const random_int = Math.floor(Math.random() * 25);
-    const newRune = potentialRunes[0][random_int];
+    const newRune = [potentialRunes[0][random_int], runeSubtitle[0][random_int]];
     setCurrentRunes([...currentRunes, newRune]);
   }
 

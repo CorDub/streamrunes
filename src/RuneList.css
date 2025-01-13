@@ -1,0 +1,8 @@
+.runes-list {
+  display: flex;
+}
+
+.runes-list-item {
+  display: flex;
+  border: 1px solid black;
+}

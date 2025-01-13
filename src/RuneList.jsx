@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import Rune from './Rune'
+import Rune from './Rune';
+import './RuneList.css';
+import PropType from 'prop-types';
 
 function RuneList({ currentRunes }) {
 
@@ -8,7 +9,8 @@ function RuneList({ currentRunes }) {
       {currentRunes.map((rune, index) =>(
         <li className="runes-list-item" key={index}>
           <Rune
-          name={rune}/>
+          name={rune[0]}
+          subtitle={rune[1]}/>
         </li>
       ))
       }
@@ -17,3 +19,7 @@ function RuneList({ currentRunes }) {
 }
 
 export default RuneList;
+
+RuneList.propTypes = {
+  currentRunes: PropType.array
+}

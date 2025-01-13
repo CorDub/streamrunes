@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Sagewold-ZpwvJ";
+  src: url("C:\Users\Corentin\Downloads\sagewold-font.tff") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.rune {
+  border: 1px solid black;
+}
+
+.rune p {
+  font-family: "Sagewold-ZpwvJ", sans-serif;
+}
+
+.img-placeholder {
+  background-color: gray;
+  height: 10vh;
+  width: 5vw;
+}
