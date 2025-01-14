@@ -4,7 +4,7 @@ import RuneList from "./RuneList";
 
 function App() {
   const [currentRunes, setCurrentRunes] = useState([]);
-  const potentialRunes = useState(["Mannaz, The Self",
+  const potentialRunes = useState(["Mannaz",
     "Gebo",
     "Ansuz",
     "Othila",

@@ -5,7 +5,12 @@ function Rune({ name, subtitle }) {
   return (
     <div className="rune">
       <p>{name}</p>
-      <div className="img-placeholder"></div>
+      <div className="img-placeholder">
+        <img
+          src={"src/assets/Mannaz.svg"}
+          alt="Mannaz icon"
+          className="rune-img"/>
+      </div>
       <p>{subtitle}</p>
     </div>
   )
