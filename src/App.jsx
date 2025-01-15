@@ -53,7 +53,7 @@ function App() {
     "Transformation",
     "Standstill",
     "Wholeness",
-    "The Unknowable"
+    "The Unknown"
   ])
 
   function dropRune () {
@@ -68,6 +68,12 @@ function App() {
 
   return (
     <div className="app-container">
+      <div className="header-container">
+        <img
+          src={"src/assets/Words_of_destiny.svg"}
+          alt="Words of Destiny"
+          className="header-img"/>
+      </div>
       <div className="rune-container">
         <RuneList
         currentRunes = {currentRunes}/>
