@@ -1,9 +1,25 @@
+body, html {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.app-container {
+  background-color: transparent;
+  width: 400px;
+}
+
+.header-img {
+  height: 40px;
+}
+
 .rune-container {
-  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: end;
   margin: 0;
+  width: 100%;
 }
 
 .button-cont {

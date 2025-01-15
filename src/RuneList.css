@@ -1,8 +1,11 @@
 .runes-list {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem;
 }
 
 .runes-list-item {
   display: flex;
-  border: 1px solid black;
+  width: 30%;
 }
