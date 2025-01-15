@@ -3,9 +3,26 @@
   justify-content: space-between;
   width: 100%;
   padding: 0.5rem;
+  transition: 0.4s;
+}
+
+.runes-list.one {
+  width: 33%;
+  transition: 0.4s;
+}
+
+.runes-list.two {
+  width: 66%;
+  transition: 0.4s;
+}
+
+.runes-list.three {
+  width: 100%;
+  transition: 0.4s;
 }
 
 .runes-list-item {
   display: flex;
-  width: 30%;
+  justify-content: center;
+  width: 100%;
 }
