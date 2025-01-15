@@ -7,7 +7,7 @@ function Rune({ name, subtitle }) {
       <p>{name}</p>
       <div className="img-placeholder">
         <img
-          src={"src/assets/Mannaz.svg"}
+          src={`src/assets/${name}.svg`}
           alt="Mannaz icon"
           className="rune-img"/>
       </div>
