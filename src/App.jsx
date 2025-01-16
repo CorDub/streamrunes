@@ -60,7 +60,6 @@ function App() {
     if (currentRunes.length >= 3) {
       currentRunes.length = 0;
     }
-    console.log(currentRunes.length);
     const random_int = Math.floor(Math.random() * 25);
     const newRune = [potentialRunes[0][random_int], runeSubtitle[0][random_int]];
     setCurrentRunes([...currentRunes, newRune]);

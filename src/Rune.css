@@ -20,3 +20,29 @@
   width: 5vh;
   background-color: gray;
 }
+
+.rune-img svg {
+  height: 10vh;
+  width: 5vh;
+  background-color: gray;
+}
+
+.rune-img path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+}
+
+.rune-img path.draw {
+  animation: drawPath 2s;
+}
+
+@keyframes drawPath {
+  0% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 0;
+  }
+};
