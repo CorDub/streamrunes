@@ -12,12 +12,12 @@ function RuneList({ currentRunes }) {
     } else if (currentRunes.length === 3) {
       return "three";
     } else {
-      return;
+      return "none";
     }
   }
 
   return (
-    <div className={`runes-list ${changeRunesListLength(currentRunes)}`}>	
+    <div className={`runes-list ${changeRunesListLength(currentRunes)}`}>
       {currentRunes.map((rune, index) =>(
         <li className="runes-list-item" key={index}>
           <Rune

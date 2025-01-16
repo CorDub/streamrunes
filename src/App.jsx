@@ -60,10 +60,14 @@ function App() {
     if (currentRunes.length >= 3) {
       currentRunes.length = 0;
     }
-    console.log(currentRunes.length);
     const random_int = Math.floor(Math.random() * 25);
     const newRune = [potentialRunes[0][random_int], runeSubtitle[0][random_int]];
+    console.log(potentialRunes[0][random_int]);
     setCurrentRunes([...currentRunes, newRune]);
+  }
+
+  function clearRunes () {
+    setCurrentRunes([]);
   }
 
   return (
@@ -79,7 +83,10 @@ function App() {
         currentRunes = {currentRunes}/>
       </div>
       <div className="button-cont">
+        {currentRunes.length >= 3 ?
+        <button className="button" onClick={clearRunes}>Clear them runes</button> :
         <button className="button" onClick={dropRune}>Drop a rune yo</button>
+        }
       </div>
     </div>
   )
