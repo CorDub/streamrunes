@@ -1,8 +1,11 @@
 @font-face {
-  font-family: "Sagewold-ZpwvJ";
-  src: url("C:\Users\Corentin\Downloads\sagewold-font.tff") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Norse-KaWl";
+  src: url("src/assets/Norse-KaWl.otf");
+}
+
+@font-face {
+  font-family: "Labrada";
+  src: url("src/assets/Labrada-Italic-VariableFont_wght.ttf");
 }
 
 .rune {
@@ -11,8 +14,26 @@
   align-items: center;
 }
 
-.rune p {
-  font-family: "Sagewold-ZpwvJ", sans-serif;
+.rune-name {
+  font-family: "Norse-KaWl", sans-serif;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.rune-name.fade-in {
+  opacity: 1;
+}
+
+.rune-subtitle {
+  font-family: "Labrada", sans-serif;
+  opacity: 0;
+  transition: opacity 1s;
+  transition-delay: 0.5s;
+}
+
+.rune-subtitle.fade-in {
+  opacity: 1;
 }
 
 .rune-img {
@@ -33,7 +54,7 @@
 }
 
 .rune-img path.draw {
-  animation: drawPath 2s;
+  animation: drawPath 1s ease-in-out forwards;
 }
 
 @keyframes drawPath {

@@ -5,6 +5,8 @@ import PropType from 'prop-types';
 function Rune({ name, subtitle }) {
   const [runeSVG, setRuneSVG] = useState(null);
   const svgRef = useRef(null);
+  const nameRef = useRef(null);
+  const subtitleRef = useRef(null);
 
   function fetchRuneSVG () {
     if (name === "Blank") {
@@ -22,19 +24,14 @@ function Rune({ name, subtitle }) {
     if (runeSVG) {
       const svgPaths = svgRef.current.querySelectorAll('.rune-img svg path');
       svgPaths.forEach((path) => {
-        // const pathLength = path.getTotalLength();
-        // path.style.strokeDasharray = pathLength;
-        // path.style.strokeDashoffset = pathLength;
-        // path.animate(
-        //   [{ strokeDashoffset: pathLength }, {strokeDashoffset: 0 }],
-        //   {
-        //     duration: 2000,
-        //     easing: 'ease-in'
-        //   }
-        // );
           path.classList.add("draw");
       }
     );
+
+    setTimeout(() => {
+      nameRef.current.classList.add("fade-in");
+      subtitleRef.current.classList.add("fade-in");
+    }, 1000);
   }}
 
   useEffect(() => {
@@ -50,7 +47,10 @@ function Rune({ name, subtitle }) {
 
   return (
     <div className="rune">
-      <p>{name}</p>
+      <p
+        className="rune-name"
+        ref={nameRef}>
+        {name}</p>
       <div className="img-placeholder">
         {(name !== "Blank") ?
           <div
@@ -60,7 +60,10 @@ function Rune({ name, subtitle }) {
           :
           <div className="rune-img"></div>}
       </div>
-      <p>{subtitle}</p>
+      <p
+        className="rune-subtitle"
+        ref={subtitleRef}>
+        {subtitle}</p>
     </div>
   )
 }
