@@ -84,9 +84,14 @@ function App() {
       </div>
       <div className="button-cont">
         {currentRunes.length >= 3 ?
-        <button className="button" onClick={clearRunes}>Clear them runes</button> :
-        <button className="button" onClick={dropRune}>Drop a rune yo</button>
-        }
+        <img
+          src={"src/assets/Speak.svg"}
+          className="button"
+          onClick={clearRunes} />:
+        <img
+          src={"src/assets/Speak.svg"}
+          className="button"
+          onClick={dropRune} />}
       </div>
     </div>
   )
