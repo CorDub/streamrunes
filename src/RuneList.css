@@ -6,6 +6,11 @@
   transition: 0.4s;
 }
 
+.runes-list.none {
+  width: 0;
+  transition: 0.4s;
+}
+
 .runes-list.one {
   width: 33%;
   transition: 0.4s;

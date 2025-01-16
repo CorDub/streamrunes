@@ -8,16 +8,19 @@ function Rune({ name, subtitle }) {
   const nameRef = useRef(null);
   const subtitleRef = useRef(null);
 
-  function fetchRuneSVG () {
+  async function fetchRuneSVG () {
     if (name === "Blank") {
       return;
     }
-
-    fetch(`src/assets/${name}.svg`)
+    try {
+    await fetch(`src/assets/${name}.svg`)
       .then(response => response.text())
       .then(data => {
         setRuneSVG(data);
       });
+    } catch (error) {
+      console.error(error);
+    };
   }
 
   function animateRuneArrival () {
@@ -26,16 +29,19 @@ function Rune({ name, subtitle }) {
       svgPaths.forEach((path) => {
           path.classList.add("draw");
       }
-    );
+    );}
+  }
 
+  function animateRuneText () {
     setTimeout(() => {
       nameRef.current.classList.add("fade-in");
       subtitleRef.current.classList.add("fade-in");
     }, 1000);
-  }}
+  }
 
   useEffect(() => {
     fetchRuneSVG();
+    animateRuneText();
   }, [name]);
 
   useEffect(() => {
