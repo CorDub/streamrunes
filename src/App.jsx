@@ -55,19 +55,28 @@ function App() {
     "Wholeness",
     "The Unknown"
   ])
+  const [spokenWords] = useState([new Audio("src/assets/Tala.mp3"), new Audio("src/assets/Nogr.mp3")]);
 
   function dropRune () {
-    if (currentRunes.length >= 3) {
-      currentRunes.length = 0;
-    }
-    const random_int = Math.floor(Math.random() * 25);
-    const newRune = [potentialRunes[0][random_int], runeSubtitle[0][random_int]];
-    console.log(potentialRunes[0][random_int]);
-    setCurrentRunes([...currentRunes, newRune]);
+    spokenWords[0].play();
+
+    setTimeout(() => {
+      if (currentRunes.length >= 3) {
+        currentRunes.length = 0;
+      }
+      const random_int = Math.floor(Math.random() * 25);
+      const newRune = [potentialRunes[0][random_int], runeSubtitle[0][random_int]];
+      console.log(potentialRunes[0][random_int]);
+      setCurrentRunes([...currentRunes, newRune]);
+    }, 250);
   }
 
   function clearRunes () {
-    setCurrentRunes([]);
+    spokenWords[1].play();
+
+    setTimeout(() => {
+      setCurrentRunes([]);
+    }, 250);
   }
 
   return (
