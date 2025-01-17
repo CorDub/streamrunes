@@ -28,8 +28,9 @@ function Rune({ name, subtitle }) {
       const svgPaths = svgRef.current.querySelectorAll('.rune-img svg path');
       svgPaths.forEach((path) => {
           path.classList.add("draw");
-      }
-    );}
+        }
+      );
+    }
   }
 
   function animateRuneText () {
@@ -40,13 +41,15 @@ function Rune({ name, subtitle }) {
   }
 
   useEffect(() => {
-    fetchRuneSVG();
-    animateRuneText();
+    setTimeout(() => {
+      fetchRuneSVG();
+      animateRuneText();
+    }, 1000);
   }, [name]);
 
   useEffect(() => {
     if (runeSVG) {
-    animateRuneArrival();
+      animateRuneArrival();
     }
   }, [runeSVG]);
 
