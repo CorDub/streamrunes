@@ -55,6 +55,7 @@ function App() {
     "Wholeness",
     "The Unknown"
   ])
+  const [spokenWords] = useState([new Audio("src/assets/Tala.mp3"), new Audio("src/assets/Nogr.mp3")]);
 
   function dropRune () {
     if (currentRunes.length >= 3) {
@@ -64,10 +65,12 @@ function App() {
     const newRune = [potentialRunes[0][random_int], runeSubtitle[0][random_int]];
     console.log(potentialRunes[0][random_int]);
     setCurrentRunes([...currentRunes, newRune]);
+    spokenWords[0].play();
   }
 
   function clearRunes () {
     setCurrentRunes([]);
+    spokenWords[1].play();
   }
 
   return (
