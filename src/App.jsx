@@ -83,9 +83,9 @@ function App() {
         currentRunes = {currentRunes}/>
       </div>
       <div className="button-cont">
-        {currentRunes.length >= 3 ?
+        {currentRunes.length === 3 ?
         <img
-          src={"src/assets/Speak.svg"}
+          src={"src/assets/Enough.svg"}
           className="button"
           onClick={clearRunes} />:
         <img
