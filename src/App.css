@@ -5,8 +5,12 @@ body, html {
   align-items: end;
 }
 
+p {
+  color: black;
+  text-shadow: 0 0 2px white;
+}
+
 .app-container {
-  background-color: transparent;
   width: 400px;
 }
 

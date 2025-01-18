@@ -60,7 +60,7 @@ function Rune({ name, subtitle }) {
         className="rune-name"
         ref={nameRef}>
         {name}</p>
-      <div className="img-placeholder">
+      <div className="rune-stone">
         {(name !== "Blank") ?
           <div
             dangerouslySetInnerHTML={{ __html: runeSVG }}
