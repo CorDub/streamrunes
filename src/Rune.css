@@ -36,16 +36,23 @@
   opacity: 1;
 }
 
+.rune-stone {
+  height: 10vh;
+  width: 5vh;
+  background-image: url("src/assets/Rune_stone.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .rune-img {
   height: 10vh;
   width: 5vh;
-  background-color: gray;
 }
 
 .rune-img svg {
   height: 10vh;
   width: 5vh;
-  background-color: gray;
 }
 
 .rune-img path {
