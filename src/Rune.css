@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "Norse-KaWl";
-  src: url("src/assets/Norse-KaWl.otf");
-}
-
-@font-face {
-  font-family: "Labrada";
-  src: url("src/assets/Labrada-Italic-VariableFont_wght.ttf");
-}
-
 .rune {
   display: flex;
   flex-direction: column;

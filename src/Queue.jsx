@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import QueueElement from './QueueElement';
 
-function Server() {
+function Queue() {
   const jwtToken = import.meta.env.VITE_JWT;
   const channelId = import.meta.env.VITE_CHANNEL_ID;
   const responseExample = [
@@ -36,7 +37,7 @@ function Server() {
       "data": {
         "username": "Katelynn Runolfsson V",
         "amount": 43,
-        "message": "",
+        "message": "Hell yeah here we go, this is the best!",
         "tier": "3000",
         "avatar": "https://cdn.streamelements.com/static/default-avatar.png"
       },
@@ -355,6 +356,7 @@ function Server() {
       "createdAt": "2018-12-03T18:45:38.679Z"
     }
   ]
+  const [sifted, setSifted] = useState([]);
 
   function createDate () {
     const unixTimestamp = Date.now()-30000;
@@ -370,7 +372,7 @@ function Server() {
 
     fetch(`https://api.streamelements.com/kappa/v2/activities/${channelId}?after=${createDate()}`, options)
       .then(response => response.json())
-      .then(response => console.log(response))
+      .then(response => siftThroughResponse(response))
       .catch(err => console.error(err));
 
     setTimeout(() => {
@@ -378,21 +380,45 @@ function Server() {
     }, 30000);
   }
 
-  useEffect(() => {
-    fetchActivities()
-  }, []);
+  // useEffect(() => {
+  //   fetchActivities()
+  // }, []);
 
   function siftThroughResponse (response) {
-    const sifted = []
+    const siftedNew = [];
     for (let i = 0; i < response.length; i++) {
       if (response[i].type === 'tip' || response[i].type === 'subscriber') {
-        sifted.push([response[i].data.username, response[i].data.amount, response[i].type]);
+        siftedNew.push([
+          response[i].data.username,
+          response[i].data.amount,
+          response[i].data.message,
+          response[i].type]);
       }
-    }
+    };
+    setSifted([...sifted, ...siftedNew]);
     console.log(sifted);
   }
 
-  siftThroughResponse(responseExample);
+  useEffect(() => {
+    siftThroughResponse(responseExample);
+  }, []);
+
+  // console.log(sifted);
+  console.log(sifted)
+
+  return (
+    <div className="queue">
+      {sifted && sifted.map((sift, index) => (
+        <div key={index}>
+          <QueueElement
+            username = {sift[0]}
+            amount = {sift[1]}
+            message = {sift[2]}
+            type = {sift[3]}/>
+        </div>
+      ))}
+    </div>
+  )
 }
 
-export default Server;
+export default Queue;

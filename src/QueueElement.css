@@ -1,0 +1,46 @@
+.qe-container {
+  padding: 0.5rem;
+}
+
+.qe-container h5 {
+  margin-top: 0;
+  margin-bottom:0;
+}
+
+.qe-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qe-username {
+  font-family: "Norse-KaWl", sans-serif;
+  font-size: 1.2em;
+}
+
+.qe-type {
+  font-family: "Labrada", sans-serif;
+  font-size: 1em;
+  margin-left: 0.5rem;
+}
+
+.qe-middler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qe-amount {
+  font-family: "Labrada", sans-serif;
+  font-size: 2em;
+  padding: 1rem;
+}
+
+.qe-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.qe-message {
+  font-family: "Labrada", sans-serif;
+}

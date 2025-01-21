@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css'
 import RuneList from "./RuneList";
-import Server from './Server';
+import Queue from './Queue';
 
 function App() {
   const [currentRunes, setCurrentRunes] = useState([]);
@@ -81,26 +81,30 @@ function App() {
 
   return (
     <div className="app-container">
-      <Server />
-      <div className="header-container">
-        <img
-          src={"src/assets/Words_of_destiny.svg"}
-          alt="Words of Destiny"
-          className="header-img"/>
+      <div className="queue-container">
+        <Queue />
       </div>
-      <div className="rune-container">
-        <RuneList currentRunes = {currentRunes}/>
-      </div>
-      <div className="button-cont">
-        {currentRunes.length === 3 ?
-        <img
-          src={"src/assets/Enough.svg"}
-          className="button"
-          onClick={clearRunes} />:
-        <img
-          src={"src/assets/Speak.svg"}
-          className="button"
-          onClick={dropRune} />}
+      <div className="top-right-container">
+        <div className="header-container">
+          <img
+            src={"src/assets/Words_of_destiny.svg"}
+            alt="Words of Destiny"
+            className="header-img"/>
+        </div>
+        <div className="rune-container">
+          <RuneList currentRunes = {currentRunes}/>
+        </div>
+        <div className="button-cont">
+          {currentRunes.length === 3 ?
+          <img
+            src={"src/assets/Enough.svg"}
+            className="button"
+            onClick={clearRunes} />:
+          <img
+            src={"src/assets/Speak.svg"}
+            className="button"
+            onClick={dropRune} />}
+        </div>
       </div>
     </div>
   )
