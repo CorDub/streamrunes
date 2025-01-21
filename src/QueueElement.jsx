@@ -21,11 +21,10 @@ function QueueElement({ username, amount, message, type }) {
   }
 
   function cutText(message) {
-    if (message.length > 154) {
-      const cut_message = message.slice(0, 154) + "...";
-      return cut_message;
-    }
-    return message;
+    const cut_message = [];
+    cut_message.push(message.slice(0, 154) + "...");
+    cut_message.push('...'+message.slice(155, message.length-1))
+    return cut_message;
   }
 
   return (
@@ -43,10 +42,10 @@ function QueueElement({ username, amount, message, type }) {
             <h5
               className="qe-message"
               onMouseEnter={() => setHovered(true)}
-              onMouseOut={() => setHovered(false)}>{cutText(message)}</h5>
+              onMouseOut={() => setHovered(false)}>{cutText(message)[0]}</h5>
             <h5 className={isHovered ?
               "qe-full-message-long" :
-              "qe-full-message-long hidden"}>{message}</h5>
+              "qe-full-message-long hidden"}>{cutText(message)[1]}</h5>
           </div>
           :
           <h5 className="qe-message">{message}</h5>
