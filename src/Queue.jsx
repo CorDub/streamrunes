@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import QueueElement from './QueueElement';
+import "./Queue.css";
+import PropTypes from "prop-types";
 
-function Queue() {
+function Queue({ isSpeakButtonHovered }) {
   const jwtToken = import.meta.env.VITE_JWT;
   const channelId = import.meta.env.VITE_CHANNEL_ID;
   const responseExample = [
@@ -403,18 +405,17 @@ function Queue() {
     siftThroughResponse(responseExample);
   }, []);
 
-  // console.log(sifted);
-  console.log(sifted)
-
   return (
-    <div className="queue">
+    <div className="queue-container">
       {sifted && sifted.map((sift, index) => (
         <div key={index}>
           <QueueElement
             username = {sift[0]}
             amount = {sift[1]}
             message = {sift[2]}
-            type = {sift[3]}/>
+            type = {sift[3]}
+            // isSpeakButtonHovered={index === 0 ? isSpeakButtonHovered : undefined}
+            {...(index === 0 && {isSpeakButtonHovered})}/>
         </div>
       ))}
     </div>
@@ -422,3 +423,7 @@ function Queue() {
 }
 
 export default Queue;
+
+Queue.propTypes = {
+  isSpeakButtonHovered: PropTypes.bool
+}

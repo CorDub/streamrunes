@@ -59,6 +59,7 @@ function App() {
     "The Unknown"
   ])
   const [spokenWords] = useState([new Audio("src/assets/Tala.mp3"), new Audio("src/assets/Nogr.mp3")]);
+  const [isSpeakButtonHovered, setSpeakButtonHovered] = useState(false);
 
   function dropRune () {
     {spokenWords && spokenWords[0].play();}
@@ -83,20 +84,19 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="queue-container">
-        <Queue />
-      </div>
+      <Queue
+        isSpeakButtonHovered={isSpeakButtonHovered}/>
 
       <CenterPiece
         clearRunes={clearRunes}
         dropRune={dropRune}
-        currentRunes={currentRunes}/>
+        currentRunes={currentRunes}
+        isSpeakButtonHovered={isSpeakButtonHovered}
+        setSpeakButtonHovered={setSpeakButtonHovered}/>
 
       <CornerPiece
-        clearRunes={clearRunes}
-        dropRune={dropRune}
         currentRunes={currentRunes}/>
-      
+
     </div>
   )
 }

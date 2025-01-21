@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import "./QueueElement.css"
 
-function QueueElement({ username, amount, message, type }) {
+function QueueElement({ username, amount, message, type, isSpeakButtonHovered }) {
   const [messageLong, setMessageToLong] = useState(false);
   const [isHovered, setHovered] = useState(false);
 
@@ -23,12 +23,12 @@ function QueueElement({ username, amount, message, type }) {
   function cutText(message) {
     const cut_message = [];
     cut_message.push(message.slice(0, 154) + "...");
-    cut_message.push('...'+message.slice(155, message.length-1))
+    cut_message.push('...'+ message.slice(155, message.length-1))
     return cut_message;
   }
 
   return (
-    <div className="qe-container">
+    <div className={isSpeakButtonHovered ? "qe-container grey" : "qe-container"}>
       <div className="qe-header">
         <h5 className="qe-username">{username}</h5>
         <h5 className="qe-type">{refineType(type)}</h5>
@@ -61,5 +61,6 @@ QueueElement.propTypes = {
   username: PropTypes.string,
   amount: PropTypes.number,
   message: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  isSpeakButtonHovered: PropTypes.bool
 }

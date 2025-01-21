@@ -16,6 +16,9 @@ body, html {
   background-color: transparent;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 p {
@@ -28,24 +31,8 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: ;
-}
-
-.queue-container {
-  width: 15%;
-  border: 1px solid black;
 }
 
 .header-img {
   height: 40px;
 }
-
-.rune-container {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  margin: 0;
-  width: 100%;
-  height: 200px;
-}
-

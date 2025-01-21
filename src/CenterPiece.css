@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 
 .button-cont {
@@ -14,4 +15,13 @@
   height: 50px;
   width: 100px;
   cursor: pointer;
+}
+
+.rune-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: 0;
+  width: 100%;
+  height: 200px;
 }
