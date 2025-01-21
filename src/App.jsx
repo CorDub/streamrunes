@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import RuneList from "./RuneList";
+import Server from './Server';
 
 function App() {
   const [currentRunes, setCurrentRunes] = useState([]);
@@ -58,7 +59,7 @@ function App() {
   const [spokenWords] = useState([new Audio("src/assets/Tala.mp3"), new Audio("src/assets/Nogr.mp3")]);
 
   function dropRune () {
-    spokenWords[0].play();
+    {spokenWords && spokenWords[0].play();}
 
     setTimeout(() => {
       if (currentRunes.length >= 3) {
@@ -66,13 +67,12 @@ function App() {
       }
       const random_int = Math.floor(Math.random() * 25);
       const newRune = [potentialRunes[0][random_int], runeSubtitle[0][random_int]];
-      console.log(potentialRunes[0][random_int]);
       setCurrentRunes([...currentRunes, newRune]);
     }, 250);
   }
 
   function clearRunes () {
-    spokenWords[1].play();
+    {spokenWords && spokenWords[1].play();}
 
     setTimeout(() => {
       setCurrentRunes([]);
@@ -81,6 +81,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <Server />
       <div className="header-container">
         <img
           src={"src/assets/Words_of_destiny.svg"}
