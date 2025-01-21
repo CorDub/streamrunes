@@ -4,3 +4,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.button-cont {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+}

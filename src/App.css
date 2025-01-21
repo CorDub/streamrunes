@@ -36,10 +36,6 @@ p {
   border: 1px solid black;
 }
 
-.top-right-container {
-  width: 400px;
-}
-
 .header-img {
   height: 40px;
 }
@@ -53,13 +49,3 @@ p {
   height: 200px;
 }
 
-.button-cont {
-  display: flex;
-  justify-content: center;
-}
-
-.button {
-  height: 50px;
-  width: 100px;
-  cursor: pointer;
-}
