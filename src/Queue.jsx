@@ -107,7 +107,7 @@ function Queue() {
       "data": {
         "username": "Emma O'Connell PhD",
         "amount": 8,
-        "message": "",
+        "message": "Non mais mec j sais pas si tu te rends compte à quel point c'est ouf ce que tu fais, mois je pourrais jamais le faire, je sais parce que j ai déjà essayé hahaha. En tout cas bravo et continue comme ca, ca fait trop plaisir de voir des gens faire des trucs si cools.",
         "tier": "prime",
         "avatar": "https://cdn.streamelements.com/static/default-avatar.png"
       },

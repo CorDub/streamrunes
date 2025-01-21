@@ -8,6 +8,10 @@
   src: url("src/assets/Labrada-Italic-VariableFont_wght.ttf");
 }
 
+.hidden {
+  display: none;
+}
+
 body, html {
   background-color: transparent;
   display: flex;

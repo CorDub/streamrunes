@@ -1,5 +1,6 @@
 .qe-container {
   padding: 0.5rem;
+  border-bottom: 1px solid black;
 }
 
 .qe-container h5 {
@@ -41,6 +42,27 @@
   justify-content: center;
 }
 
+.qe-message-long {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .qe-message {
   font-family: "Labrada", sans-serif;
+  text-align: justify;
+}
+
+.qe-full-message-long {
+  font-family: "Labrada", sans-serif;
+  text-align: justify;
+  border: 1px solid black;
+  border-radius: 15px;
+  position: absolute;
+  width: 100%;
+  top: -30px;
+  right: -325px;
+  padding: 1rem;
 }
