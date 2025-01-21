@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import "./QueueElement.css"
 
 function QueueElement({ username, amount, message, type }) {
   const [messageLong, setMessageToLong] = useState(false);
   const [isHovered, setHovered] = useState(false);
-  const uncutTextRef = useRef(null);
 
   useEffect(() => {
     if (message.length > 150) {
@@ -28,10 +27,6 @@ function QueueElement({ username, amount, message, type }) {
     }
     return message;
   }
-
-  // function displayUncutText() {
-  //   uncutTextRef.current.classList.remove('hidden');
-  // }
 
   return (
     <div className="qe-container">

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css'
 import RuneList from "./RuneList";
 import Queue from './Queue';
+import CenterPiece from './CenterPiece';
 
 function App() {
   const [currentRunes, setCurrentRunes] = useState([]);
@@ -84,6 +85,12 @@ function App() {
       <div className="queue-container">
         <Queue />
       </div>
+
+      <CenterPiece
+        clearRunes={clearRunes}
+        dropRune={dropRune}
+        currentRunes={currentRunes}/>
+
       <div className="top-right-container">
         <div className="header-container">
           <img
