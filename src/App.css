@@ -1,8 +1,17 @@
+@font-face {
+  font-family: "Norse-KaWl";
+  src: url("src/assets/Norse-KaWl.otf");
+}
+
+@font-face {
+  font-family: "Labrada";
+  src: url("src/assets/Labrada-Italic-VariableFont_wght.ttf");
+}
+
 body, html {
   background-color: transparent;
   display: flex;
   flex-direction: column;
-  align-items: end;
 }
 
 p {
@@ -11,6 +20,19 @@ p {
 }
 
 .app-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: ;
+}
+
+.queue-container {
+  width: 15%;
+  border: 1px solid black;
+}
+
+.top-right-container {
   width: 400px;
 }
 

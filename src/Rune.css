@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "Norse-KaWl";
-  src: url("src/assets/Norse-KaWl.otf");
-}
-
-@font-face {
-  font-family: "Labrada";
-  src: url("src/assets/Labrada-Italic-VariableFont_wght.ttf");
-}
-
 .rune {
   display: flex;
   flex-direction: column;
@@ -39,7 +29,7 @@
 .rune-stone {
   height: 10vh;
   width: 5vh;
-  background-image: url("src/assets/Rune_stone2.png");
+  background-image: url("src/assets/Rune_stone2_high_dpi.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
