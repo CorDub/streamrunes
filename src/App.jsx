@@ -89,8 +89,7 @@ function App() {
           className="header-img"/>
       </div>
       <div className="rune-container">
-        <RuneList
-        currentRunes = {currentRunes}/>
+        <RuneList currentRunes = {currentRunes}/>
       </div>
       <div className="button-cont">
         {currentRunes.length === 3 ?
