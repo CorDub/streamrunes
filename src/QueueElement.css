@@ -9,6 +9,10 @@
   background-color: grey;
 }
 
+.end {
+  transform: translateX(400px);
+}
+
 .qe-container h5 {
   margin-top: 0;
   margin-bottom:0;

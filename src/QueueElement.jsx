@@ -2,7 +2,14 @@ import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import "./QueueElement.css"
 
-function QueueElement({ username, amount, message, type, isSpeakButtonHovered }) {
+function QueueElement({
+  username,
+  amount,
+  message,
+  type,
+  isSpeakButtonHovered,
+  isSpeakButtonClicked }) {
+
   const [messageLong, setMessageToLong] = useState(false);
   const [isHovered, setHovered] = useState(false);
 
@@ -28,7 +35,8 @@ function QueueElement({ username, amount, message, type, isSpeakButtonHovered })
   }
 
   return (
-    <div className={isSpeakButtonHovered ? "qe-container grey" : "qe-container"}>
+    <div className={isSpeakButtonHovered ? (isSpeakButtonClicked ? "qe-container end" : "qe-container grey") :"qe-container" }>
+    {/* // <div className={isSpeakButtonClicked ? "qe-container end" : "qe-container"}> */}
       <div className="qe-header">
         <h5 className="qe-username">{username}</h5>
         <h5 className="qe-type">{refineType(type)}</h5>
@@ -51,6 +59,7 @@ function QueueElement({ username, amount, message, type, isSpeakButtonHovered })
           <h5 className="qe-message">{message}</h5>
         }
       </div>
+    {/* // </div> */}
     </div>
   );
 }
@@ -62,5 +71,6 @@ QueueElement.propTypes = {
   amount: PropTypes.number,
   message: PropTypes.string,
   type: PropTypes.string,
-  isSpeakButtonHovered: PropTypes.bool
+  isSpeakButtonHovered: PropTypes.bool,
+  isSpeakButtonClicked: PropTypes.bool
 }

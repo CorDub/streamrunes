@@ -3,7 +3,7 @@ import QueueElement from './QueueElement';
 import "./Queue.css";
 import PropTypes from "prop-types";
 
-function Queue({ isSpeakButtonHovered }) {
+function Queue({ isSpeakButtonHovered, isSpeakButtonClicked }) {
   const jwtToken = import.meta.env.VITE_JWT;
   const channelId = import.meta.env.VITE_CHANNEL_ID;
   const responseExample = [
@@ -401,6 +401,18 @@ function Queue({ isSpeakButtonHovered }) {
     console.log(sifted);
   }
 
+  function removeFirstQueueElement () {
+    setTimeout(() => {
+      setSifted(sifted.slice(1, sifted.length))
+    }, 500);
+  }
+
+  useEffect(() => {
+    if (isSpeakButtonClicked) {
+      removeFirstQueueElement();
+    }
+  }, [isSpeakButtonClicked]);
+
   useEffect(() => {
     siftThroughResponse(responseExample);
   }, []);
@@ -414,8 +426,8 @@ function Queue({ isSpeakButtonHovered }) {
             amount = {sift[1]}
             message = {sift[2]}
             type = {sift[3]}
-            // isSpeakButtonHovered={index === 0 ? isSpeakButtonHovered : undefined}
-            {...(index === 0 && {isSpeakButtonHovered})}/>
+            {...(index === 0 && {isSpeakButtonHovered})}
+            {...(index === 0 && {isSpeakButtonClicked})}/>
         </div>
       ))}
     </div>
@@ -425,5 +437,6 @@ function Queue({ isSpeakButtonHovered }) {
 export default Queue;
 
 Queue.propTypes = {
-  isSpeakButtonHovered: PropTypes.bool
+  isSpeakButtonHovered: PropTypes.bool,
+  isSpeakButtonClicked: PropTypes.bool
 }

@@ -2,8 +2,21 @@ import RuneList from "./RuneList";
 import PropTypes from "prop-types";
 import './CenterPiece.css';
 
-function CenterPiece({ clearRunes, dropRune, currentRunes, isSpeakButtonHovered, setSpeakButtonHovered }) {
+function CenterPiece({
+  clearRunes,
+  dropRune,
+  currentRunes,
+  isSpeakButtonHovered,
+  setSpeakButtonHovered,
+  setSpeakButtonClicked }) {
 
+  function clickDropRune () {
+    dropRune();
+    setSpeakButtonClicked(true);
+    setTimeout(() => {
+      setSpeakButtonClicked(false);
+    }, 500);
+  }
 
   return (
     <div className="center-piece-container">
@@ -26,7 +39,7 @@ function CenterPiece({ clearRunes, dropRune, currentRunes, isSpeakButtonHovered,
         <img
           src={"src/assets/Speak.svg"}
           className="button"
-          onClick={dropRune}
+          onClick={clickDropRune}
           onMouseEnter={()=>setSpeakButtonHovered(!isSpeakButtonHovered)}
           onMouseOut={()=>setSpeakButtonHovered(!isSpeakButtonHovered)}/>}
       </div>
@@ -41,5 +54,6 @@ CenterPiece.propTypes = {
   dropRune: PropTypes.func,
   currentRunes: PropTypes.object,
   setSpeakButtonHovered: PropTypes.func,
-  isSpeakButtonHovered: PropTypes.bool
+  isSpeakButtonHovered: PropTypes.bool,
+  setSpeakButtonClicked: PropTypes.func
 }

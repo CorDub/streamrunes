@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css'
-import RuneList from "./RuneList";
 import Queue from './Queue';
 import CenterPiece from './CenterPiece';
 import CornerPiece from './CornerPiece';
@@ -60,6 +59,7 @@ function App() {
   ])
   const [spokenWords] = useState([new Audio("src/assets/Tala.mp3"), new Audio("src/assets/Nogr.mp3")]);
   const [isSpeakButtonHovered, setSpeakButtonHovered] = useState(false);
+  const [isSpeakButtonClicked, setSpeakButtonClicked] = useState(false);
 
   function dropRune () {
     {spokenWords && spokenWords[0].play();}
@@ -85,14 +85,16 @@ function App() {
   return (
     <div className="app-container">
       <Queue
-        isSpeakButtonHovered={isSpeakButtonHovered}/>
+        isSpeakButtonHovered={isSpeakButtonHovered}
+        isSpeakButtonClicked={isSpeakButtonClicked}/>
 
       <CenterPiece
         clearRunes={clearRunes}
         dropRune={dropRune}
         currentRunes={currentRunes}
         isSpeakButtonHovered={isSpeakButtonHovered}
-        setSpeakButtonHovered={setSpeakButtonHovered}/>
+        setSpeakButtonHovered={setSpeakButtonHovered}
+        setSpeakButtonClicked={setSpeakButtonClicked}/>
 
       <CornerPiece
         currentRunes={currentRunes}/>
