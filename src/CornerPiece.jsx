@@ -6,10 +6,6 @@ function CornerPiece ({ currentRunes }) {
   return (
     <div className="corner-piece-container">
       <div className="corpie-header-container">
-        {/* <img
-          src={"src/assets/Empty Header.svg"}
-          alt="Words of Destiny"
-          className="header-img"/> */}
       </div>
       <div className="corpie-rune-container">
         <RuneList currentRunes = {currentRunes}/>

@@ -31,4 +31,6 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-image: url("src/assets/Test Background.JPG");
+  background-size: cover;
 }
