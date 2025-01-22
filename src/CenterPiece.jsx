@@ -1,3 +1,4 @@
+import { useState } from "react";
 import RuneList from "./RuneList";
 import PropTypes from "prop-types";
 import './CenterPiece.css';
@@ -32,11 +33,15 @@ function CenterPiece({
           className="header-img"/>
       </div>
       <div className="rune-container">
-        {isQueueEmpty ?
-        <p>Idiot, the queue is empty</p>
-        :
-        <RuneList currentRunes = {currentRunes}/>
-        }
+      {isQueueEmpty ?
+        <div className="rune-container-nothing">
+          <img src="src/assets/Nothing2.svg" className="nothing"/>
+        </div>
+      :
+        <div className="rune-container">
+          <RuneList currentRunes = {currentRunes}/>
+        </div>
+      }
       </div>
       <div className="button-cont">
         {currentRunes.length === 3 ?
