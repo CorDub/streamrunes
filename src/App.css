@@ -8,10 +8,17 @@
   src: url("src/assets/Labrada-Italic-VariableFont_wght.ttf");
 }
 
+.hidden {
+  display: none;
+}
+
 body, html {
   background-color: transparent;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 p {
@@ -24,38 +31,8 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: ;
-}
-
-.queue-container {
-  width: 15%;
-  border: 1px solid black;
-}
-
-.top-right-container {
-  width: 400px;
 }
 
 .header-img {
   height: 40px;
-}
-
-.rune-container {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  margin: 0;
-  width: 100%;
-  height: 200px;
-}
-
-.button-cont {
-  display: flex;
-  justify-content: center;
-}
-
-.button {
-  height: 50px;
-  width: 100px;
-  cursor: pointer;
 }

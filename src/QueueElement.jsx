@@ -1,7 +1,25 @@
+import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import "./QueueElement.css"
 
-function QueueElement({ username, amount, message, type }) {
+function QueueElement({
+  username,
+  amount,
+  message,
+  type,
+  isSpeakButtonHovered,
+  isSpeakButtonClicked,
+  firstElement }) {
+
+  const [messageLong, setMessageToLong] = useState(false);
+  const [isHovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    if (message.length > 150) {
+      setMessageToLong(true);
+    }
+  }, [message]);
+
   function refineType(type) {
     if (type === "subscriber") {
       return 'Sub'
@@ -10,8 +28,19 @@ function QueueElement({ username, amount, message, type }) {
     }
   }
 
+  function cutText(message) {
+    const cut_message = [];
+    cut_message.push(message.slice(0, 154) + "...");
+    cut_message.push('...'+ message.slice(155, message.length-1))
+    return cut_message;
+  }
+
   return (
-    <div className="qe-container">
+    <div className={
+      isSpeakButtonHovered ?
+        (isSpeakButtonClicked ?
+          ( firstElement ? "qe-container end" : "qe-container top")
+            : "qe-container grey" ): "qe-container" }>
       <div className="qe-header">
         <h5 className="qe-username">{username}</h5>
         <h5 className="qe-type">{refineType(type)}</h5>
@@ -20,7 +49,19 @@ function QueueElement({ username, amount, message, type }) {
         <h5 className="qe-amount">${amount}</h5>
       </div>
       <div className="qe-footer">
-        <h5 className="qe-message">{message}</h5>
+        {messageLong ?
+          <div className="qe-message-long">
+            <h5
+              className="qe-message"
+              onMouseEnter={() => setHovered(true)}
+              onMouseOut={() => setHovered(false)}>{cutText(message)[0]}</h5>
+            <h5 className={isHovered ?
+              "qe-full-message-long" :
+              "qe-full-message-long hidden"}>{cutText(message)[1]}</h5>
+          </div>
+          :
+          <h5 className="qe-message">{message}</h5>
+        }
       </div>
     </div>
   );
@@ -32,5 +73,8 @@ QueueElement.propTypes = {
   username: PropTypes.string,
   amount: PropTypes.number,
   message: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  isSpeakButtonHovered: PropTypes.bool,
+  isSpeakButtonClicked: PropTypes.bool,
+  firstElement: PropTypes.bool
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css'
-import RuneList from "./RuneList";
 import Queue from './Queue';
+import CenterPiece from './CenterPiece';
+import CornerPiece from './CornerPiece';
 
 function App() {
   const [currentRunes, setCurrentRunes] = useState([]);
@@ -57,6 +58,8 @@ function App() {
     "The Unknown"
   ])
   const [spokenWords] = useState([new Audio("src/assets/Tala.mp3"), new Audio("src/assets/Nogr.mp3")]);
+  const [isSpeakButtonHovered, setSpeakButtonHovered] = useState(false);
+  const [isSpeakButtonClicked, setSpeakButtonClicked] = useState(false);
 
   function dropRune () {
     {spokenWords && spokenWords[0].play();}
@@ -81,31 +84,21 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="queue-container">
-        <Queue />
-      </div>
-      <div className="top-right-container">
-        <div className="header-container">
-          <img
-            src={"src/assets/Words_of_destiny.svg"}
-            alt="Words of Destiny"
-            className="header-img"/>
-        </div>
-        <div className="rune-container">
-          <RuneList currentRunes = {currentRunes}/>
-        </div>
-        <div className="button-cont">
-          {currentRunes.length === 3 ?
-          <img
-            src={"src/assets/Enough.svg"}
-            className="button"
-            onClick={clearRunes} />:
-          <img
-            src={"src/assets/Speak.svg"}
-            className="button"
-            onClick={dropRune} />}
-        </div>
-      </div>
+      <Queue
+        isSpeakButtonHovered={isSpeakButtonHovered}
+        isSpeakButtonClicked={isSpeakButtonClicked}/>
+
+      <CenterPiece
+        clearRunes={clearRunes}
+        dropRune={dropRune}
+        currentRunes={currentRunes}
+        isSpeakButtonHovered={isSpeakButtonHovered}
+        setSpeakButtonHovered={setSpeakButtonHovered}
+        setSpeakButtonClicked={setSpeakButtonClicked}/>
+
+      <CornerPiece
+        currentRunes={currentRunes}/>
+
     </div>
   )
 }

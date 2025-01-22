@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import QueueElement from './QueueElement';
+import "./Queue.css";
+import PropTypes from "prop-types";
 
-function Queue() {
+function Queue({ isSpeakButtonHovered, isSpeakButtonClicked }) {
   const jwtToken = import.meta.env.VITE_JWT;
   const channelId = import.meta.env.VITE_CHANNEL_ID;
   const responseExample = [
@@ -107,7 +109,7 @@ function Queue() {
       "data": {
         "username": "Emma O'Connell PhD",
         "amount": 8,
-        "message": "",
+        "message": "Non mais mec j sais pas si tu te rends compte à quel point c'est ouf ce que tu fais, mois je pourrais jamais le faire, je sais parce que j ai déjà essayé hahaha. En tout cas bravo et continue comme ca, ca fait trop plaisir de voir des gens faire des trucs si cools.",
         "tier": "prime",
         "avatar": "https://cdn.streamelements.com/static/default-avatar.png"
       },
@@ -399,22 +401,34 @@ function Queue() {
     console.log(sifted);
   }
 
+  function removeFirstQueueElement () {
+    setTimeout(() => {
+      setSifted(sifted.slice(1, sifted.length))
+    }, 500);
+  }
+
+  useEffect(() => {
+    if (isSpeakButtonClicked) {
+      removeFirstQueueElement();
+    }
+  }, [isSpeakButtonClicked]);
+
   useEffect(() => {
     siftThroughResponse(responseExample);
   }, []);
 
-  // console.log(sifted);
-  console.log(sifted)
-
   return (
-    <div className="queue">
+    <div className="queue-container">
       {sifted && sifted.map((sift, index) => (
         <div key={index}>
           <QueueElement
             username = {sift[0]}
             amount = {sift[1]}
             message = {sift[2]}
-            type = {sift[3]}/>
+            type = {sift[3]}
+            isSpeakButtonClicked={isSpeakButtonClicked}
+            {...(index === 0 && {isSpeakButtonHovered})}
+            firstElement = {index === 0 ? true : false}/>
         </div>
       ))}
     </div>
@@ -422,3 +436,8 @@ function Queue() {
 }
 
 export default Queue;
+
+Queue.propTypes = {
+  isSpeakButtonHovered: PropTypes.bool,
+  isSpeakButtonClicked: PropTypes.bool
+}
