@@ -36,8 +36,9 @@
 }
 
 .nothing {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   width: 200px;
+}
+
+.header-img {
+  height: 40px;
 }
