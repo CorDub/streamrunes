@@ -5,13 +5,9 @@ import './CornerPiece.css'
 function CornerPiece ({ currentRunes }) {
   return (
     <div className="corner-piece-container">
-      <div className="header-container">
-        <img
-          src={"src/assets/Words_of_destiny.svg"}
-          alt="Words of Destiny"
-          className="header-img"/>
+      <div className="corpie-header-container">
       </div>
-      <div className="rune-container">
+      <div className="corpie-rune-container">
         <RuneList currentRunes = {currentRunes}/>
       </div>
     </div>
