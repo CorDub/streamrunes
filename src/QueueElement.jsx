@@ -8,7 +8,8 @@ function QueueElement({
   message,
   type,
   isSpeakButtonHovered,
-  isSpeakButtonClicked }) {
+  isSpeakButtonClicked,
+  firstElement }) {
 
   const [messageLong, setMessageToLong] = useState(false);
   const [isHovered, setHovered] = useState(false);
@@ -35,8 +36,11 @@ function QueueElement({
   }
 
   return (
-    <div className={isSpeakButtonHovered ? (isSpeakButtonClicked ? "qe-container end" : "qe-container grey") :"qe-container" }>
-    {/* // <div className={isSpeakButtonClicked ? "qe-container end" : "qe-container"}> */}
+    <div className={
+      isSpeakButtonHovered ?
+        (isSpeakButtonClicked ?
+          ( firstElement ? "qe-container end" : "qe-container top")
+            : "qe-container grey" ): "qe-container" }>
       <div className="qe-header">
         <h5 className="qe-username">{username}</h5>
         <h5 className="qe-type">{refineType(type)}</h5>
@@ -59,7 +63,6 @@ function QueueElement({
           <h5 className="qe-message">{message}</h5>
         }
       </div>
-    {/* // </div> */}
     </div>
   );
 }
@@ -72,5 +75,6 @@ QueueElement.propTypes = {
   message: PropTypes.string,
   type: PropTypes.string,
   isSpeakButtonHovered: PropTypes.bool,
-  isSpeakButtonClicked: PropTypes.bool
+  isSpeakButtonClicked: PropTypes.bool,
+  firstElement: PropTypes.bool
 }

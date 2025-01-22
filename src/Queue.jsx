@@ -426,8 +426,9 @@ function Queue({ isSpeakButtonHovered, isSpeakButtonClicked }) {
             amount = {sift[1]}
             message = {sift[2]}
             type = {sift[3]}
+            isSpeakButtonClicked={isSpeakButtonClicked}
             {...(index === 0 && {isSpeakButtonHovered})}
-            {...(index === 0 && {isSpeakButtonClicked})}/>
+            firstElement = {index === 0 ? true : false}/>
         </div>
       ))}
     </div>
