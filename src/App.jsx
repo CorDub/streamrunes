@@ -60,6 +60,7 @@ function App() {
   const [spokenWords] = useState([new Audio("src/assets/Tala.mp3"), new Audio("src/assets/Nogr.mp3")]);
   const [isSpeakButtonHovered, setSpeakButtonHovered] = useState(false);
   const [isSpeakButtonClicked, setSpeakButtonClicked] = useState(false);
+  const [isQueueEmpty, setQueueEmpty] = useState(false);
 
   function dropRune () {
     {spokenWords && spokenWords[0].play();}
@@ -86,7 +87,8 @@ function App() {
     <div className="app-container">
       <Queue
         isSpeakButtonHovered={isSpeakButtonHovered}
-        isSpeakButtonClicked={isSpeakButtonClicked}/>
+        isSpeakButtonClicked={isSpeakButtonClicked}
+        setQueueEmpty={setQueueEmpty}/>
 
       <CenterPiece
         clearRunes={clearRunes}
@@ -94,7 +96,8 @@ function App() {
         currentRunes={currentRunes}
         isSpeakButtonHovered={isSpeakButtonHovered}
         setSpeakButtonHovered={setSpeakButtonHovered}
-        setSpeakButtonClicked={setSpeakButtonClicked}/>
+        setSpeakButtonClicked={setSpeakButtonClicked}
+        isQueueEmpty={isQueueEmpty}/>
 
       <CornerPiece
         currentRunes={currentRunes}/>
