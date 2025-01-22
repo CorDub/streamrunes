@@ -8,9 +8,14 @@ function CenterPiece({
   currentRunes,
   isSpeakButtonHovered,
   setSpeakButtonHovered,
-  setSpeakButtonClicked }) {
+  setSpeakButtonClicked,
+  isQueueEmpty }) {
 
   function clickDropRune () {
+    if (isQueueEmpty) {
+      return;
+    }
+
     dropRune();
     setSpeakButtonClicked(true);
     setTimeout(() => {
@@ -27,7 +32,11 @@ function CenterPiece({
           className="header-img"/>
       </div>
       <div className="rune-container">
+        {isQueueEmpty ?
+        <p>Idiot, the queue is empty</p>
+        :
         <RuneList currentRunes = {currentRunes}/>
+        }
       </div>
       <div className="button-cont">
         {currentRunes.length === 3 ?
@@ -55,5 +64,6 @@ CenterPiece.propTypes = {
   currentRunes: PropTypes.object,
   setSpeakButtonHovered: PropTypes.func,
   isSpeakButtonHovered: PropTypes.bool,
-  setSpeakButtonClicked: PropTypes.func
+  setSpeakButtonClicked: PropTypes.func,
+  isQueueEmpty: PropTypes.bool
 }

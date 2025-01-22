@@ -3,7 +3,7 @@ import QueueElement from './QueueElement';
 import "./Queue.css";
 import PropTypes from "prop-types";
 
-function Queue({ isSpeakButtonHovered, isSpeakButtonClicked }) {
+function Queue({ isSpeakButtonHovered, isSpeakButtonClicked, setQueueEmpty }) {
   const jwtToken = import.meta.env.VITE_JWT;
   const channelId = import.meta.env.VITE_CHANNEL_ID;
   const responseExample = [
@@ -408,6 +408,14 @@ function Queue({ isSpeakButtonHovered, isSpeakButtonClicked }) {
   }
 
   useEffect(() => {
+    if (sifted.length === 0) {
+      setQueueEmpty(true);
+    } else {
+      setQueueEmpty(false);
+    }
+  }, [sifted]);
+
+  useEffect(() => {
     if (isSpeakButtonClicked) {
       removeFirstQueueElement();
     }
@@ -439,5 +447,6 @@ export default Queue;
 
 Queue.propTypes = {
   isSpeakButtonHovered: PropTypes.bool,
-  isSpeakButtonClicked: PropTypes.bool
+  isSpeakButtonClicked: PropTypes.bool,
+  setQueueEmpty: PropTypes.func
 }
