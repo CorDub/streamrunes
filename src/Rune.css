@@ -9,6 +9,8 @@
   font-size: 1.5rem;
   opacity: 0;
   transition: opacity 1s;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 2px 2px 5px 5px rgba(255, 255, 255, 0.05);
 }
 
 .rune-name.fade-in {
@@ -20,6 +22,8 @@
   opacity: 0;
   transition: opacity 1s;
   transition-delay: 0.5s;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 2px 2px 5px 5px rgba(255, 255, 255, 0.05);
 }
 
 .rune-subtitle.fade-in {

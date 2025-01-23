@@ -56,10 +56,12 @@ function Rune({ name, subtitle }) {
 
   return (
     <div className="rune">
+      <div className="rune-name-background">
       <p
         className="rune-name"
         ref={nameRef}>
         {name}</p>
+      </div>
       <div className="rune-stone">
         {(name !== "Blank") ?
           <div
