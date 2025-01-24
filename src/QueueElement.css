@@ -1,3 +1,7 @@
+:root {
+  --offsetHeight: 0px;
+}
+
 .qe-container {
   padding: 0.5rem;
   padding-top: 2rem;
@@ -5,22 +9,39 @@
   background-image: url("src/assets/QueueStone2.png");
   background-size: 90% 100%;
   background-position: center;
-  transition: 0.5s;
+  transition: transform 1s ease, background-image 0.5s ease;
   opacity: 1;
-  /* border: 1px solid black; */
 }
 
-.grey {
-  background-color: grey;
+.gold {
+  background-image: url("src/assets/QueueStoneGold.png");
 }
 
 .end {
-  transform: translateX(400px);
-  opacity: 0;
+  animation: moveRight 1s forwards;
 }
 
 .top {
-  transform: translateY(200px);
+  /* transition: transform 1s ease; */
+  animation: moveUp 1s forwards;
+}
+
+@keyframes moveRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  } to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(0);
+  } to {
+    transform: translate(var(--offsetHeight));
+  }
 }
 
 .qe-container h5 {
@@ -28,7 +49,7 @@
   margin-bottom:0;
 }
 
-.qe-container.grey h5 {
+.qe-container.gold h5 {
   margin-top: 0;
   margin-bottom:0;
 }
