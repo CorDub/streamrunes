@@ -35,12 +35,38 @@ function QueueElement({
     return cut_message;
   }
 
+  function determineClassName() {
+    if (firstElement) {
+      if (isSpeakButtonClicked) {
+        return "qe-container end";
+      }
+
+      if (isSpeakButtonHovered) {
+        return "qe-container gold";
+      }
+    } else {
+      if (isSpeakButtonClicked) {
+        return "qe-container top";
+      }
+    }
+    return "qe-container";
+  }
+
+  function animateUp () {
+    const rest = document.querySelectorAll('.qe-container top');
+    const first = document.querySelector("qe-container gold");
+    rest.forEach(element => {
+      // element.style.transform = `translateY(-${first.offsetHeight}px)`;
+      element.style.setProperty('--offsetHeight', `-${first.offsetHeight}px`);
+    })
+  }
+
+  useEffect(() => {
+    animateUp()
+  }, [isSpeakButtonClicked]);
+
   return (
-    <div className={
-      isSpeakButtonHovered ?
-        (isSpeakButtonClicked ?
-          ( firstElement ? "qe-container end" : "qe-container top")
-            : "qe-container grey" ): "qe-container" }>
+    <div className={determineClassName()}>
       <div className="qe-header">
         <h5 className="qe-username">{username}</h5>
         <h5 className="qe-type">{refineType(type)}</h5>
