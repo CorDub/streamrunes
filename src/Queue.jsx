@@ -366,7 +366,7 @@ function Queue({ isSpeakButtonHovered, isSpeakButtonClicked, setQueueEmpty }) {
     return isoTimestamp;
   }
 
-  async function fetchActivities () {
+  async function fetchActivitiesDirect () {
     const options = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwtToken}`}
@@ -383,8 +383,12 @@ function Queue({ isSpeakButtonHovered, isSpeakButtonClicked, setQueueEmpty }) {
   }
 
   // useEffect(() => {
-  //   fetchActivities()
+  //   fetchActivitiesDirect()
   // }, []);
+
+  // async function authorizeApiAccess () {
+  //   const redirect_url =
+  // }
 
   function siftThroughResponse (response) {
     const siftedNew = [];
@@ -398,7 +402,6 @@ function Queue({ isSpeakButtonHovered, isSpeakButtonClicked, setQueueEmpty }) {
       }
     };
     setSifted([...sifted, ...siftedNew]);
-    console.log(sifted);
   }
 
   function removeFirstQueueElement () {

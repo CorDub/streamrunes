@@ -19,5 +19,5 @@ export default CornerPiece;
 CornerPiece.propTypes = {
   clearRunes: PropTypes.func,
   dropRune: PropTypes.func,
-  currentRunes: PropTypes.object
+  currentRunes: PropTypes.array
 }

@@ -65,7 +65,7 @@ export default CenterPiece;
 CenterPiece.propTypes = {
   clearRunes: PropTypes.func,
   dropRune: PropTypes.func,
-  currentRunes: PropTypes.object,
+  currentRunes: PropTypes.array,
   setSpeakButtonHovered: PropTypes.func,
   isSpeakButtonHovered: PropTypes.bool,
   setSpeakButtonClicked: PropTypes.func,

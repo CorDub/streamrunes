@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 import Queue from './Queue';
 import CenterPiece from './CenterPiece';
 import CornerPiece from './CornerPiece';
+import Login from "./Login";
 
 function App() {
   const [currentRunes, setCurrentRunes] = useState([]);
@@ -83,13 +84,38 @@ function App() {
     }, 250);
   }
 
+  const appId = import.meta.env.VITE_TWITCH_CLIENT_ID;
+
+  async function fetchSubscriptions() {
+    const access_token = localStorage.getItem('twitch_access_token');
+    const response = await fetch("https://api.twitch.tv/helix/subscriptions", {
+      headers: {
+        "Client-ID": appId,
+        Authorization: `Bearer ${access_token}`
+      }
+    });
+    const data = await response.json();
+    console.log(data);
+  }
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    const params = new URLSearchParams(hash.replace("#", "?"));
+    const accessToken = params.get("access_token");
+
+    if (accessToken) {
+      localStorage.setItem("twitch_access_token", accessToken);
+    }
+  }, []);
+
   return (
     <div className="app-container">
       <Queue
         isSpeakButtonHovered={isSpeakButtonHovered}
         isSpeakButtonClicked={isSpeakButtonClicked}
         setQueueEmpty={setQueueEmpty}/>
-
+      <Login
+        fetchSubscriptions={fetchSubscriptions}/>
       <CenterPiece
         clearRunes={clearRunes}
         dropRune={dropRune}
